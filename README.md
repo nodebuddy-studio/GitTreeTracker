@@ -46,15 +46,12 @@ However, because worktrees use a non-standard `.git` text file rather than a fol
 
 ---
 
-## 🔧 How It Works (Under the Hood)
+## 🌲 How to Use Git Worktrees with Godot
 
-The plugin bypasses Godot's virtual directory restrictions to access absolute operating system paths. When loaded, it checks the physical nature of the `.git` target:
+If you’ve never used Git Worktrees before, they are a game-changer for game development. Instead of `git checkout` changing the files under Godot's feet (which triggers massive re-imports), a worktree lets you have **multiple branches open in different folders simultaneously**.
 
-1. **If it's a file (Git Worktree):** It opens the file, reads the `gitdir` routing pointer, and clips out the branch subfolder identity.
-2. **If it's a folder (Standard Repo):** It reads the traditional `.git/HEAD` reference file to parse out the local branch target.
+### 1. Creating a Worktree
+Open your terminal inside your main repository directory and run:
 
----
-
-## 📄 License
-
-This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details. It is completely safe for use in both open-source and commercial game production.
+```bash
+git worktree add ../my-project-feature-branch feature-branch
